@@ -1,53 +1,86 @@
-// ADMIN
-const inputProductoNuevo = document.getElementById("productoNuevo")
-const inputPrecio = document.getElementById("precio")
-const inputStock = document.getElementById("stock")
-class productoNew{
-    constructor(productoNuevo,precio,stock){
-    this.productoNuevo = productoNuevo
-    this.precio = precio
-    this.stock = stock
+// // ADMIN
+// const inputProductoNuevo = document.getElementById("productoNuevo")
+// const inputPrecio = document.getElementById("precio")
+// const inputStock = document.getElementById("stock")
+// class productoNew{
+//     constructor(productoNuevo,precio,stock){
+//     this.productoNuevo = productoNuevo
+//     this.precio = precio
+//     this.stock = stock
+// }
+// }
+// let productosNew= []
+// if(localStorage.getItem('productosNew')){
+//     productosNew = JSON.parse(localStorage.getItem('productosNew'))
+// }
+
+
+// botonIngreso.onclick = () => {
+//     const productosNews = new productoNew (inputProductoNuevo.value, inputPrecio.value, inputStock.value)
+//     productosNew.push(productosNews)
+//     inputProductoNuevo.value = ""
+//     inputPrecio.value = ""
+//     inputStock.value=""
+
+//     // guardar en localStorage
+//     localStorage.setItem("productosNew",JSON.stringify(productosNew))
+//     console.log(productosNew)
+// }
+// // Fin Admin
+
+// // USUARIO
+
+// const inputNombre = document.getElementById("nombre")
+// const inputApellido = document.getElementById("apellido")
+// const botonDatos = document.getElementById("botonDatos")
+
+// botonDatos.onclick = () =>{
+//     const usuario ={
+//         nombre: inputNombre.value,
+//         apellido: inputApellido.value
+//     }
+//     inputNombre.value = ""
+//     inputApellido.value = ""
+//     console.log(usuario)
+//     // guardar en localStorage
+//     localStorage.setItem("infoUsuario",JSON.stringify(usuario))
+// }
+// // Fin de usuario
+
+// Buscar en Dom
+const selectElem = document.getElementById("lista")
+const botonAregar = document.getElementById("agregar")
+const botonFinalizar = document.getElementById('finalizar')
+
+const productosArray = JSON.parse(localStorage.getItem('productosNew'))
+
+
+productosArray.forEach(prod=>{
+    const optionProd = document.createElement('option')
+    optionProd.innerText = `${prod.productoNuevo}: ${prod.precio}`
+    optionProd.setAttribute('value', `${prod.productoNuevo}`)
+    selectElem.append(optionProd)
+})
+
+
+// CARRITO 2
+const carrito2 = []
+console.log(productosArray)
+botonAregar.onclick =()=> {
+    const nomProd = selectElem.value
+    const prodSelec = productosArray.find(prod=>prod.productoNuevo === nomProd)
+    carrito2.push(prodSelec)
+    console.log(carrito2)
 }
+
+botonFinalizar.onclick = () => { 
+    let totalCompra = 0
+    carrito2.forEach(prod=>{
+        totalCompra = totalCompra + parseInt(prod.precio) 
+    })
+    alert(`El total es ${totalCompra}`)
 }
-let productosNew= []
-if(localStorage.getItem('productosNew')){
-    productosNew = JSON.parse(localStorage.getItem('productosNew'))
-}
-
-
-botonIngreso.onclick = () => {
-    const productosNews = new productoNew (inputProductoNuevo.value, inputPrecio.value, inputStock.value)
-    productosNew.push(productosNews)
-    inputProductoNuevo.value = ""
-    inputPrecio.value = ""
-    inputStock.value=""
-
-    // guardar en localStorage
-    localStorage.setItem("productosNew",JSON.stringify(productosNew))
-    console.log(productosNew)
-}
-// Fin Admin
-
-// USUARIO
-
-const inputNombre = document.getElementById("nombre")
-const inputApellido = document.getElementById("apellido")
-const botonDatos = document.getElementById("botonDatos")
-
-botonDatos.onclick = () =>{
-    const usuario ={
-        nombre: inputNombre.value,
-        apellido: inputApellido.value
-    }
-    inputNombre.value = ""
-    inputApellido.value = ""
-    console.log(usuario)
-    // guardar en localStorage
-    localStorage.setItem("infoUsuario",JSON.stringify(usuario))
-}
-// Fin de usuario
-
-
+// ----------------------------------------------------------------------------------------
 
 
 
@@ -92,7 +125,6 @@ productos.push(Toxic)
 let carrito = [];
 
 console.log(productos)
-
 
 
 //DOM PARA CREAR PRODUCTOS DINAMICAMENTE
@@ -304,3 +336,8 @@ const eliminarArticulo = () => {
     pintarCarrito();
     actualizarCarrito()
 };
+
+
+
+
+
