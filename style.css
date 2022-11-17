@@ -182,9 +182,12 @@ h4{
     width: 100px;
     color: white;
 }
-.divDatos{
+.divUsuario{
     margin: 20px;
     
+}
+.divAdmin{
+    margin: 20px;
 }
 @media screen and (max-width: 768px) {
     .Logo{

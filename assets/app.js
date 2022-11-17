@@ -1,9 +1,39 @@
-// Buscar elementos en el dom
+// ADMIN
+const inputProductoNuevo = document.getElementById("productoNuevo")
+const inputPrecio = document.getElementById("precio")
+const inputStock = document.getElementById("stock")
+class productoNew{
+    constructor(productoNuevo,precio,stock){
+    this.productoNuevo = productoNuevo
+    this.precio = precio
+    this.stock = stock
+}
+}
+let productosNew= []
+if(localStorage.getItem('productosNew')){
+    productosNew = JSON.parse(localStorage.getItem('productosNew'))
+}
+
+
+botonIngreso.onclick = () => {
+    const productosNews = new productoNew (inputProductoNuevo.value, inputPrecio.value, inputStock.value)
+    productosNew.push(productosNews)
+    inputProductoNuevo.value = ""
+    inputPrecio.value = ""
+    inputStock.value=""
+
+    // guardar en localStorage
+    localStorage.setItem("productosNew",JSON.stringify(productosNew))
+    console.log(productosNew)
+}
+// Fin Admin
+
+// USUARIO
+
 const inputNombre = document.getElementById("nombre")
 const inputApellido = document.getElementById("apellido")
 const botonDatos = document.getElementById("botonDatos")
 
-// event listenner
 botonDatos.onclick = () =>{
     const usuario ={
         nombre: inputNombre.value,
@@ -15,6 +45,9 @@ botonDatos.onclick = () =>{
     // guardar en localStorage
     localStorage.setItem("infoUsuario",JSON.stringify(usuario))
 }
+// Fin de usuario
+
+
 
 
 
