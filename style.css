@@ -95,6 +95,14 @@ section {
     color: rgb(255, 255, 255);
     border-radius: 10px;
 }
+.cardToxic{
+    max-width: 300px;
+    max-width: 350px;
+    margin: 0 auto;
+    background-color: black;
+    color: rgb(255, 255, 255);
+    border-radius: 10px;
+}
 
 #redes {
   color: rgb(255, 0, 0);
@@ -169,7 +177,15 @@ section {
     font-size: 20px;
     padding: 5px;    
 }
-
+h4{
+    background-color: black;
+    width: 100px;
+    color: white;
+}
+.divDatos{
+    margin: 20px;
+    
+}
 @media screen and (max-width: 768px) {
     .Logo{
         height: 100px;

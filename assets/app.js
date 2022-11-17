@@ -1,3 +1,25 @@
+// Buscar elementos en el dom
+const inputNombre = document.getElementById("nombre")
+const inputApellido = document.getElementById("apellido")
+const botonDatos = document.getElementById("botonDatos")
+
+// event listenner
+botonDatos.onclick = () =>{
+    const usuario ={
+        nombre: inputNombre.value,
+        apellido: inputApellido.value
+    }
+    inputNombre.value = ""
+    inputApellido.value = ""
+    console.log(usuario)
+    // guardar en localStorage
+    localStorage.setItem("infoUsuario",JSON.stringify(usuario))
+}
+
+
+
+
+
 /// INICIALIZAR VARIABLES GLOBALES 
 let costoTotalCompra = 0;
 let flag;
@@ -6,7 +28,9 @@ let operacion;
 let opcion;
 let cantidad;
 // INSTANCIAR CLASE 
-class gev {
+const productos = []
+
+class producto {
     constructor(id, nombre, descripcion, precio) {
         this.id = id;
         this.nombre = nombre;
@@ -15,20 +39,31 @@ class gev {
     };
 };
 //INSTANCIAMOS LOS OBJETOS Y GUARDAMOS EN ARRAYS POR TIPO DE PRODUCTOS
-const Lavado = [lavadoBasico = new gev(1, "Lavado basico", "Este servicio cuenta con lavado y aspirado basico.", 1000),
-lavadoMedio = new gev(2, "Lavado medio", "Este servicio cuenta con lavado con productos toxic , aspirado y abrillantado de ruedas ", 2000),
-lavadoPremium = new gev(3, "Lavado Premium", "Este lavado cuenta con lavado con productos toxic , aspirado y abrillantado de ruedas y limpieza de motor", 3000)];
-const Ploteo = [ploteoCompleto = new gev(4, "Ploteo completo", "Plotear un auto completo", 1000),
-ploteoParcial = new gev(5, "Ploteo parcial del auto", "Ploteo parcial del auto", 2000)];
-const Interior = [tapizado = new gev(8, "Limpieza de tapizado", "Limpiamos los tapizados de los asientos", 1000),
-alfombra = new gev(9, "Limpieza de alfombrado", "Limpiamos todo el alfombrado de tu vehiculo", 2000)];
+const Lavado = [lavadoBasico = new producto(1, "Lavado basico", "Este servicio cuenta con lavado y aspirado basico.", 1000),
+lavadoMedio = new producto(2, "Lavado medio", "Este servicio cuenta con lavado con productos toxic , aspirado y abrillantado de ruedas ", 2000),
+lavadoPremium = new producto(3, "Lavado Premium", "Este lavado cuenta con lavado con productos toxic , aspirado y abrillantado de ruedas y limpieza de motor", 3000)];
+productos.push(Lavado)
+
+const Ploteo = [ploteoCompleto = new producto(4, "Ploteo completo", "Plotear un auto completo", 1000),
+ploteoParcial = new producto(5, "Ploteo parcial del auto", "Ploteo parcial del auto", 2000)];
+productos.push(Ploteo)
+
+const Interior = [tapizado = new producto(6, "Limpieza de tapizado", "Limpiamos los tapizados de los asientos", 1000),
+alfombra = new producto(7, "Limpieza de alfombrado", "Limpiamos todo el alfombrado de tu vehiculo", 2000)];
+productos.push(Interior)
+
+const Toxic = [shampoo = new producto (8, "Shampoo Toxic", "basico", 1000 )]
+productos.push(Toxic)
+
 //CARRITO DE COMRPAS
 let carrito = [];
 
+console.log(productos)
 
 
 
 //DOM PARA CREAR PRODUCTOS DINAMICAMENTE
+
 //CREAMOS EL GRUPO Lavado
 const seccLavado = document.getElementById("seccLavado");
 const prductosLavado = Lavado.forEach((lavado)=> {
@@ -149,7 +184,44 @@ const prductosInterior = Interior.forEach((Interior)=> {
     };   
 });
 
-// Correccion hasta aca---------------------------------------------------------------------------------------------
+//CREAMOS EL GRUPO Toxic
+const seccToxic = document.getElementById("seccToxic");
+const prductosToxic = Toxic.forEach((Toxic)=> {
+    const div1 = document.createElement("div");
+    div1.className = "col";
+    seccToxic.append(div1);
+    const contenido = document.createElement("div");
+    contenido.className = "card cardToxic";
+    div1.append(contenido);
+    const cuerpo = document.createElement("div");
+    cuerpo.className = "card-body text-center"
+    cuerpo.innerHTML =`
+    <h5 class="card-title">${Toxic.nombre}</h5>
+    <p class="card-text">${Toxic.descripcion}</p>
+    <p class="card-text">$ ${Toxic.precio}</p>
+    <button type="button" class="btn btn-outline-light tor" id="${Toxic.id}"><strong>Agregar al Carrito</strong></button>
+    `    
+    contenido.append(cuerpo);
+    //AGREGAR AL ARRAY CARRITO SIN REPETIR PRODUCTOS
+    const agregaToxic = document.getElementById(`${Toxic.id}`);
+    agregaToxic.onclick = () => {        
+        const repite = carrito.some((repiteProd)=>repiteProd.id === Toxic.id);
+        if (repite) {           
+            let objeto = carrito.find(item => item.id == Toxic.id)
+            objeto.cantidad += 1
+        }
+        else {
+        carrito.push({ id: Toxic.id,
+            img: Toxic.img,
+            nombre: Toxic.nombre,
+            precio: Toxic.precio,
+            cantidad: Toxic.cantidad               
+        });
+        };  
+        pintarCarrito()                                  
+    };
+});
+
 
 //CONSTRUCCION CARRITO EVENTOS CLICK
 const verCarrito = document.getElementById("ver-carrito");

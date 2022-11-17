@@ -18,6 +18,13 @@
       <div class="Logo">
       <img class="Logo" src="./Media/Logo p.jpg" alt="">  
       </div>
+      <!-- Usuario -->
+      <div class="divDatos">
+        <h1>Ingresar datos</h1>
+        <h4>Nombre:</h4><input type="text" name="nombre" id="nombre">
+        <h4>Apellido:</h4><input type="text" name="apellido" id="apellido">
+        <button id="botonDatos" class="btn btn-dark tor">Ingresar</button>
+      </div>
         <div class="collapse" id="navbarToggleExternalContent">
             <div class="bg-dark p-4">                
                 <li class="nav-item">
@@ -28,6 +35,9 @@
                   </li>
                 <li class="nav-item">
                     <a class="active nav" href="#Interiores">Interiores</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="active nav" href="#Toxic">Toxic</a>
                   </li>
                 <li class="nav-item">
                     <a class="active nav" href="#contacto">Contacto</a>
@@ -61,6 +71,11 @@
       <div class="row row-cols-1 row-cols-md-2 g-4" id="seccInterior">       
       </div>
     </section>    
+    <section class="container">
+      <h2 id="Toxic" class="text-center">Productos Toxic</h2>      
+        <div class="row row-cols-1 row-cols-md-3 g-4" id="seccToxic">          
+        </div>      
+    </section>
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content cuerpoCarrito">
@@ -74,7 +89,7 @@
           <div class="modal-footer">
             <p class="total-carrito">Total: $<span id="total-carrito">0</span></p>
             <button type="button" class="btn btn-dark" data-bs-dismiss="modal">SALIR</button>
-            <button type="button" class="btn btn-dark">IR A PAGAR</button>
+            <button type="button" class="btn btn-dark"><a href=""> IR A PAGAR</a></button>
           </div>
         </div>
       </div>
