@@ -1,234 +1,54 @@
-
-body {    
-    background-color: black;
-    
+body{
+    background-image: url(/media/Chapa_oscura_2.jpg);
 }
+
 .Logo{
-    height: 300px;
-    display: flex;
+    height:300px;
+    display: grid; 
+    align-items: center; 
     justify-content: center;
-    align-items: center;
-    border-radius: 10px;
- }
-ul {
-    list-style: none;
-}
-
-h1 {
-    font-family: "Open Sans", sans-seri;
-    font-size: 60px;
-    margin-top: 15px;
-    margin-bottom: 10px;
-    color: rgb(255, 0, 0);
-}
-#inicio2{
-    color: white;
-    background-color: black;
-    margin-left: 440px;
-    margin-right: 440px;
-    border-radius: 10px;
-}
-.nav {
-    color: whitesmoke;
-    font-size: 20px;
-    text-decoration: none;
-}
-
-h2 {
-    font-family: "Loto", sans-serif;
-    font-weight: bolder;
-    font-size: 40px;
-    margin-bottom: 20px;
-    color: rgb(255, 0, 0);
-    background-color: black;
-    margin-left: 440px;
-    margin-right: 440px;
-    border-radius: 10px;
-}
-
-h5 {
-    font-family: "Roboto", sans-seri;
-    font-weight: bolder;
-    font-size: 25px;
-}
-
-p {
-    font-family: cursive;
-    font-size: 14px;
-}
-
-#button1, #button2, #button3, #button4, #button5, #button6, #button7, #button8, #button9 {
-    font-family: Arial, Helvetica, sans-serif;
-    margin: 0, auto;      
-}
-
-section {
-    margin-top: 45px;
-    margin-bottom: 40px;
-  }
-
-.margenRedes {
-    margin-top: 18px;
-}
-
-.cardLavado {
-    max-width: 300px;
-    margin: 0 auto;
-    background-color: black;
-    color: white;
-    border-radius: 10px;
-       
-}
-.cardInterior{
-    max-width: 300px;
-    margin: 0 auto;
-    background-color: black;
-    color: white;
-    border-radius: 10px;
-}
-
-.cardPloteo {
-    max-width: 300px;
-    max-width: 350px;
-    margin: 0 auto;
-    background-color: black;
-    color: rgb(255, 255, 255);
-    border-radius: 10px;
-}
-.cardToxic{
-    max-width: 300px;
-    max-width: 350px;
-    margin: 0 auto;
-    background-color: black;
-    color: rgb(255, 255, 255);
-    border-radius: 10px;
-}
-.prueba{
-    background-color: black;
-    color: white;
-}
-
-#redes {
-  color: rgb(255, 0, 0);
-  font-size: 1.50rem;
-  font-family: "Roboto Ital 100";
-  text-decoration: none;
-  font-weight: bold;
-  list-style: none;
-  background-color: black;
-  border-radius: 10px;
-}
-
-#avion {
-  color: black;
-  font-size: 2rem;
-  font-family: "Roboto Ital 100";
-  text-decoration: none;
-  font-weight: bold;
-  list-style: none;
-}
-
-.cuerpoCarrito {
-    background-color: black;
-    color: white
-}
-
-.modal-header {
-    display: flex;
-    justify-content: space-around;
-    background-color: black;
-    color: white;
-    width: 100%;
-}
-
-.modal-cuerpo-carrito {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    width: 90%;
-    height: 10%;
-    font-size: 15px;   
-    margin: 10px;
-}
-
-.modal-cuerpo-carrito > p {
-    margin: 0 5%;
-}
-
-.modal-cuerpo-carrito > img {
-    height: 60px;
-    width: 60px;
-}
-
-.modal-cuerpo-carrito > h3 {
-    font-size: 15px;
-    margin: 0 10%;
-}
-.modal-cuerpo-carrito > input {
-    width: 50px;
-    background-color: black;
-    color: white;
-    margin: 0 3%;    
-}
-
-.delete-product {
-    cursor: pointer;
-    margin: 0 10%; 
-}
-
-.total-carrito {
-    font-size: 20px;
-    padding: 5px;    
-}
-h4{
-    background-color: black;
-    width: 100px;
-    color: white;
 }
 .divUsuario{
-    margin: 20px;
-    
+    background-color: black;
+    border-radius: 10px;
+    color: rgb(255, 0, 0);
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 350px;
+    height: 350px;
+    display: grid;
+    align-items: center;
+    justify-content: center;
 }
-.divAdmin{
-    margin: 20px;
+#productos{
+    margin-top: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 1050px;
+    height: 600px;
+    background-color: rgb(94, 94, 94);
 }
-@media screen and (max-width: 768px) {
-    .Logo{
-        height: 100px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border-radius: 10px;
-     }
+h2{
+    color: red;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+}
 
-    h1 {
-        font-size: 35px;
-    }
-
-    .nav {
-        font-size: 13px;
-    }
+footer{
+    display: grid;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    margin-top: 100px;
+    height: 150px;
+    width: 100%;
+    background-color: black;
+    color: rgb(255, 0, 0);
+    list-style: none;
+}
+.contacto{
+    list-style: none;
     
-    h2 {               
-        font-size: 25px;
-        margin-left: 100px;
-    }
-    
-    h5 {               
-        font-size: 21px;
-    }
-    
-    p {
-        font-size: 17px;
-    } 
-    
-    .margenRedes {
-        margin-left: 15px;
-        padding-bottom: 10px;
-    }
-
-    #avion {        
-        font-size: 1.8rem;
-    }
 }
